@@ -17,12 +17,24 @@ public class IntegerListImpl implements IntegerList {
 
     @Override
     public Integer add(Integer item) {
-        return null;
+        validateSize();
+        validateItem(item);
+        storage[size++] = item;
+        return item;
     }
 
     @Override
     public Integer add(int index, Integer item) {
-        return null;
+        validateSize();
+        validateItem(item);
+        validateIndex(index);
+
+        if (index == size) {}
+
+        System.arraycopy(storage, index, storage, index + 1,size - index);
+        storage[size++] = item;
+        return item;
+
     }
 
     @Override
